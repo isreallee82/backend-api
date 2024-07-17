@@ -13,7 +13,7 @@ install:
 	conda env create -f environment.yml
 
 docker_build:
-	docker build -t hummingbot/backend-api:latest .
+	docker build -t buddhasource/backend-api:latest .
 
 docker_run:
 	docker compose up -d
