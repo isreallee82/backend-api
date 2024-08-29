@@ -1,0 +1,788 @@
+conda env create -f environment.yml
+Channels:
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Installing pip dependencies: ...working... Ran pip subprocess with arguments:
+['/home/ubuntu/miniconda3/envs/backend-api/bin/python', '-m', 'pip', 'install', '-U', '-r', '/home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting git+https://github.com/toraverse/hummingbot.git@feat/tegro_bybit (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Cloning https://github.com/toraverse/hummingbot.git (to revision feat/tegro_bybit) to /tmp/pip-req-build-nddpbbwj
+  Resolved https://github.com/toraverse/hummingbot.git to commit 2767e1b9656af2f39f74b89897edec24ea729273
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting git+https://github.com/felixfontein/docker-py (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 3))
+  Cloning https://github.com/felixfontein/docker-py to /tmp/pip-req-build-hgpv2ixi
+  Resolved https://github.com/felixfontein/docker-py to commit a3652028b1ead708bd9191efb286f909ba6c2a49
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting git+https://github.com/hummingbot/hbot-remote-client-py.git (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 9))
+  Cloning https://github.com/hummingbot/hbot-remote-client-py.git to /tmp/pip-req-build-7i7qbjq9
+  Resolved https://github.com/hummingbot/hbot-remote-client-py.git to commit 5fa09e966f41593cdbc6c183a2d19f43ab4880c2
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting numpy==1.26.4 (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 2))
+  Using cached numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting python-dotenv (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 4))
+  Using cached python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+Collecting boto3 (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 5))
+  Using cached boto3-1.35.5-py3-none-any.whl.metadata (6.6 kB)
+Requirement already satisfied: python-multipart in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 6)) (0.0.9)
+Collecting PyYAML (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 7))
+  Using cached PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting apscheduler (from -r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 8))
+  Using cached APScheduler-3.10.4-py3-none-any.whl.metadata (5.7 kB)
+Collecting bidict (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached bidict-0.23.1-py3-none-any.whl.metadata (8.7 kB)
+Collecting aioconsole (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached aioconsole-0.7.1-py3-none-any.whl.metadata (5.4 kB)
+Collecting aiohttp (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached aiohttp-3.10.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.5 kB)
+Collecting aioprocessing (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached aioprocessing-2.0.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting asyncssh (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached asyncssh-2.16.0-py3-none-any.whl.metadata (9.9 kB)
+Collecting appdirs (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting appnope (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached appnope-0.1.4-py2.py3-none-any.whl.metadata (908 bytes)
+Collecting async-timeout (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached async_timeout-4.0.3-py3-none-any.whl.metadata (4.2 kB)
+Collecting base58 (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached base58-2.1.1-py3-none-any.whl.metadata (3.1 kB)
+Collecting cachetools (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached cachetools-5.5.0-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: certifi in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (2024.7.4)
+Collecting coincurve (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached coincurve-20.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting cryptography (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached cryptography-43.0.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.4 kB)
+Collecting cython==3.0.0 (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached Cython-3.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.1 kB)
+Collecting cytoolz (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached cytoolz-0.12.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.6 kB)
+Collecting commlib-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached commlib_py-0.11.4-py3-none-any.whl.metadata (24 kB)
+Collecting diff-cover (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached diff_cover-9.1.1-py3-none-any.whl.metadata (17 kB)
+Collecting eip712-structs (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eip712_structs-1.1.0-py3-none-any.whl
+Collecting eth-abi (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_abi-5.1.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting eth-account (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_account-0.13.2-py3-none-any.whl.metadata (5.3 kB)
+Collecting eth-bloom (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_bloom-3.0.1-py3-none-any.whl.metadata (8.3 kB)
+Collecting eth-keyfile (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_keyfile-0.8.1-py3-none-any.whl.metadata (8.5 kB)
+Collecting eth-typing (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_typing-5.0.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting eth-utils (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_utils-5.0.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting flake8 (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached flake8-7.1.1-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting hexbytes (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached hexbytes-1.2.1-py3-none-any.whl.metadata (3.7 kB)
+Collecting importlib-metadata (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached importlib_metadata-8.4.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting injective-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached injective_py-1.6.3-py3-none-any.whl.metadata (4.0 kB)
+Collecting mypy-extensions (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting msgpack (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached msgpack-1.0.8-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.1 kB)
+Collecting nose (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached nose-1.3.7-py3-none-any.whl.metadata (1.7 kB)
+Collecting nose-exclude (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached nose_exclude-0.5.0-py3-none-any.whl
+Collecting pandas (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+Requirement already satisfied: pip in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (24.2)
+Collecting pre-commit (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pre_commit-3.8.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting prompt-toolkit (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached prompt_toolkit-3.0.47-py3-none-any.whl.metadata (6.4 kB)
+Collecting protobuf (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached protobuf-5.27.3-cp38-abi3-manylinux2014_x86_64.whl.metadata (592 bytes)
+Collecting psutil (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached psutil-6.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (21 kB)
+Requirement already satisfied: pydantic in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (2.8.2)
+Collecting pyjwt (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached PyJWT-2.9.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting pyperclip (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pyperclip-1.9.0-py3-none-any.whl
+Collecting python-dateutil (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting python-telegram-bot==12.8 (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached python_telegram_bot-12.8-py2.py3-none-any.whl.metadata (8.7 kB)
+Collecting pyOpenSSL (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pyOpenSSL-24.2.1-py3-none-any.whl.metadata (13 kB)
+Collecting requests (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting rsa (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached rsa-4.9-py3-none-any.whl.metadata (4.2 kB)
+Collecting ruamel-yaml (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached ruamel.yaml-0.18.6-py3-none-any.whl.metadata (23 kB)
+Collecting scipy (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+Collecting signalr-client-aio (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached signalr_client_aio-0.0.1.6.2-py2.py3-none-any.whl.metadata (920 bytes)
+Collecting simplejson (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached simplejson-3.19.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)
+Collecting six (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting sqlalchemy (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached SQLAlchemy-2.0.32-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+Collecting tabulate (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+Collecting tzlocal (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached tzlocal-5.2-py3-none-any.whl.metadata (7.8 kB)
+Collecting ujson (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached ujson-5.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.3 kB)
+Collecting web3 (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached web3-7.0.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting websockets (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached websockets-13.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting yarl (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached yarl-1.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (31 kB)
+Collecting pandas-ta==0.3.14b (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pandas_ta-0.3.14b0-py3-none-any.whl
+Collecting tornado>=5.1 (from python-telegram-bot==12.8->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached tornado-6.4.1-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting decorator>=4.4.0 (from python-telegram-bot==12.8->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting urllib3>=1.26.0 (from docker==4.4.2.dev287+ga365202->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 3))
+  Using cached urllib3-2.2.2-py3-none-any.whl.metadata (6.4 kB)
+Collecting botocore<1.36.0,>=1.35.5 (from boto3->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 5))
+  Using cached botocore-1.35.5-py3-none-any.whl.metadata (5.7 kB)
+Collecting jmespath<2.0.0,>=0.7.1 (from boto3->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 5))
+  Using cached jmespath-1.0.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting s3transfer<0.11.0,>=0.10.0 (from boto3->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 5))
+  Using cached s3transfer-0.10.2-py3-none-any.whl.metadata (1.7 kB)
+Collecting pytz (from apscheduler->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 8))
+  Using cached pytz-2024.1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting commlib-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached commlib_py-0.10.6-py3-none-any.whl.metadata (28 kB)
+Collecting hiredis==2.1.1 (from commlib-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached hiredis-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting paho-mqtt==1.6.1 (from commlib-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached paho_mqtt-1.6.1-py3-none-any.whl
+Collecting pika==1.3.1 (from commlib-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pika-1.3.1-py3-none-any.whl.metadata (13 kB)
+Collecting pydantic (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pydantic-1.10.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (142 kB)
+Collecting ujson (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached ujson-5.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.0 kB)
+Requirement already satisfied: typing-extensions>=4.2.0 in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from pydantic->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (4.12.2)
+Collecting charset-normalizer<4,>=2 (from requests->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached charset_normalizer-3.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (33 kB)
+Requirement already satisfied: idna<4,>=2.5 in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from requests->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (3.8)
+Collecting aiohappyeyeballs>=2.3.0 (from aiohttp->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached aiohappyeyeballs-2.4.0-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.1.2 (from aiohttp->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached aiosignal-1.3.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting attrs>=17.3.0 (from aiohttp->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached attrs-24.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached frozenlist-1.4.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached multidict-6.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting cffi>=1.12 (from cryptography->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached cffi-1.17.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting asn1crypto (from coincurve->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB)
+Collecting toolz>=0.8.0 (from cytoolz->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached toolz-0.12.1-py3-none-any.whl.metadata (5.1 kB)
+Requirement already satisfied: Jinja2>=2.7.1 in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from diff-cover->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (3.1.4)
+Requirement already satisfied: Pygments<3.0.0,>=2.9.0 in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from diff-cover->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (2.18.0)
+Collecting chardet>=3.0.0 (from diff-cover->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting pluggy<2,>=0.13.1 (from diff-cover->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pysha3>=1.0.2 (from eip712-structs->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pysha3-1.0.2-cp310-cp310-linux_x86_64.whl
+Collecting eth-hash>=0.3.1 (from eth-utils->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_hash-0.7.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting parsimonious<0.11.0,>=0.10.0 (from eth-abi->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached parsimonious-0.10.0-py3-none-any.whl.metadata (25 kB)
+Collecting bitarray>=2.4.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached bitarray-2.9.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (34 kB)
+Collecting eth-keys>=0.4.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_keys-0.5.1-py3-none-any.whl.metadata (13 kB)
+Collecting eth-rlp>=2.1.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_rlp-2.1.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting rlp>=1.0.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached rlp-4.0.1-py3-none-any.whl.metadata (4.6 kB)
+Collecting ckzg>=2.0.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached ckzg-2.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (683 bytes)
+INFO: pip is looking at multiple versions of eth-account to determine which version is compatible with other requirements. This could take a while.
+Collecting eth-account (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_account-0.13.1-py3-none-any.whl.metadata (5.3 kB)
+  Using cached eth_account-0.13.0-py3-none-any.whl.metadata (5.3 kB)
+  Using cached eth_account-0.12.4-py3-none-any.whl.metadata (5.1 kB)
+Collecting ckzg<2,>=0.4.3 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached ckzg-1.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (683 bytes)
+Collecting eth-account (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_account-0.12.3-py3-none-any.whl.metadata (5.1 kB)
+  Using cached eth_account-0.12.2-py3-none-any.whl.metadata (5.1 kB)
+  Using cached eth_account-0.12.1-py3-none-any.whl.metadata (5.1 kB)
+  Using cached eth_account-0.12.0-py3-none-any.whl.metadata (5.1 kB)
+INFO: pip is still looking at multiple versions of eth-account to determine which version is compatible with other requirements. This could take a while.
+  Using cached eth_account-0.11.3-py3-none-any.whl.metadata (5.1 kB)
+  Using cached eth_account-0.11.2-py3-none-any.whl.metadata (5.1 kB)
+  Using cached eth_account-0.11.1-py3-none-any.whl.metadata (5.1 kB)
+  Using cached eth_account-0.11.0-py3-none-any.whl.metadata (5.0 kB)
+  Using cached eth_account-0.10.0-py3-none-any.whl.metadata (5.4 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Using cached eth_account-0.9.0-py3-none-any.whl.metadata (5.5 kB)
+Collecting pycryptodome<4,>=3.6.6 (from eth-keyfile->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pycryptodome-3.20.0-cp35-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.4 kB)
+Collecting mccabe<0.8.0,>=0.7.0 (from flake8->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting pycodestyle<2.13.0,>=2.12.0 (from flake8->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pycodestyle-2.12.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pyflakes<3.3.0,>=3.2.0 (from flake8->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting zipp>=0.5 (from importlib-metadata->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached zipp-3.20.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting bech32 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached bech32-1.2.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting bip32 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached bip32-3.4-py3-none-any.whl.metadata (4.6 kB)
+Collecting ecdsa (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached ecdsa-0.19.0-py2.py3-none-any.whl.metadata (29 kB)
+Collecting eip712 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eip712-0.2.9-py3-none-any.whl.metadata (4.6 kB)
+Collecting grpcio (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached grpcio-1.66.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.9 kB)
+Collecting grpcio-tools (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached grpcio_tools-1.66.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.3 kB)
+Collecting hdwallets (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached hdwallets-0.1.2-py3-none-any.whl.metadata (6.4 kB)
+Collecting mnemonic (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached mnemonic-0.21-py3-none-any.whl.metadata (3.4 kB)
+Collecting safe-pysha3 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached safe_pysha3-1.0.4-cp310-cp310-linux_x86_64.whl
+Collecting web3 (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached web3-6.20.3-py3-none-any.whl.metadata (4.6 kB)
+INFO: pip is looking at multiple versions of web3 to determine which version is compatible with other requirements. This could take a while.
+  Using cached web3-6.20.2-py3-none-any.whl.metadata (4.5 kB)
+  Using cached web3-6.20.1-py3-none-any.whl.metadata (4.5 kB)
+  Using cached web3-6.20.0-py3-none-any.whl.metadata (4.5 kB)
+  Using cached web3-6.19.0-py3-none-any.whl.metadata (4.5 kB)
+  Using cached web3-6.18.0-py3-none-any.whl.metadata (4.5 kB)
+  Using cached web3-6.17.2-py3-none-any.whl.metadata (4.5 kB)
+  Using cached web3-6.17.1-py3-none-any.whl.metadata (4.5 kB)
+INFO: pip is still looking at multiple versions of web3 to determine which version is compatible with other requirements. This could take a while.
+  Using cached web3-6.17.0-py3-none-any.whl.metadata (4.5 kB)
+  Using cached web3-6.16.0-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.15.1-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.15.0-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.14.0-py3-none-any.whl.metadata (4.9 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Using cached web3-6.13.0-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.12.0-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.11.4-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.11.3-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.11.2-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.11.1-py3-none-any.whl.metadata (4.9 kB)
+  Using cached web3-6.11.0-py3-none-any.whl.metadata (4.9 kB)
+Collecting jsonschema>=4.0.0 (from web3->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting lru-dict>=1.1.6 (from web3->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached lru_dict-1.3.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.5 kB)
+Collecting pyunormalize>=15.0.0 (from web3->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pyunormalize-15.1.0-py3-none-any.whl
+Collecting tzdata>=2022.7 (from pandas->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached tzdata-2024.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting cfgv>=2.0.0 (from pre-commit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached cfgv-3.4.0-py2.py3-none-any.whl.metadata (8.5 kB)
+Collecting identify>=1.0.0 (from pre-commit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached identify-2.6.0-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting nodeenv>=0.11.1 (from pre-commit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached nodeenv-1.9.1-py2.py3-none-any.whl.metadata (21 kB)
+Collecting virtualenv>=20.10.0 (from pre-commit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached virtualenv-20.26.3-py3-none-any.whl.metadata (4.5 kB)
+Collecting wcwidth (from prompt-toolkit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+Collecting pyasn1>=0.1.3 (from rsa->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pyasn1-0.6.0-py2.py3-none-any.whl.metadata (8.3 kB)
+Collecting ruamel.yaml.clib>=0.2.7 (from ruamel-yaml->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached ruamel.yaml.clib-0.2.8-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl.metadata (2.2 kB)
+Collecting greenlet!=0.4.17 (from sqlalchemy->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached greenlet-3.0.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting pycparser (from cffi>=1.12->cryptography->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from Jinja2>=2.7.1->diff-cover->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (2.1.5)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.0.0->web3->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached jsonschema_specifications-2023.12.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=4.0.0->web3->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached referencing-0.35.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.7.1 (from jsonschema>=4.0.0->web3->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached rpds_py-0.20.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting regex>=2022.3.15 (from parsimonious<0.11.0,>=0.10.0->eth-abi->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached regex-2024.7.24-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+Collecting distlib<1,>=0.3.7 (from virtualenv>=20.10.0->pre-commit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached distlib-0.3.8-py2.py3-none-any.whl.metadata (5.1 kB)
+Collecting filelock<4,>=3.12.2 (from virtualenv>=20.10.0->pre-commit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached filelock-3.15.4-py3-none-any.whl.metadata (2.9 kB)
+Collecting platformdirs<5,>=3.9.1 (from virtualenv>=20.10.0->pre-commit->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached platformdirs-4.2.2-py3-none-any.whl.metadata (11 kB)
+Collecting coincurve (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached coincurve-18.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+Collecting dataclassy<1,>=0.11.1 (from eip712->injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached dataclassy-0.11.1-py3-none-any.whl.metadata (22 kB)
+Collecting eip712 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eip712-0.2.8-py3-none-any.whl.metadata (4.6 kB)
+INFO: pip is looking at multiple versions of eip712 to determine which version is compatible with other requirements. This could take a while.
+  Using cached eip712-0.2.7-py3-none-any.whl.metadata (4.6 kB)
+  Using cached eip712-0.2.6-py3-none-any.whl.metadata (4.6 kB)
+  Using cached eip712-0.2.5-py3-none-any.whl.metadata (4.6 kB)
+Collecting eth-abi (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_abi-4.2.1-py3-none-any.whl.metadata (5.2 kB)
+Collecting eip712 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eip712-0.2.4-py3-none-any.whl.metadata (4.6 kB)
+  Using cached eip712-0.2.3-py3-none-any.whl.metadata (4.6 kB)
+  Using cached eip712-0.2.2-py3-none-any.whl.metadata (4.6 kB)
+Collecting eth-account (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_account-0.8.0-py3-none-any.whl.metadata (6.3 kB)
+Collecting eip712 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eip712-0.2.1-py3-none-any.whl.metadata (4.5 kB)
+INFO: pip is still looking at multiple versions of eip712 to determine which version is compatible with other requirements. This could take a while.
+  Using cached eip712-0.2.0-py3-none-any.whl.metadata (4.4 kB)
+  Using cached eip712-0.1.7-py3-none-any.whl.metadata (4.5 kB)
+Collecting eth-utils (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_utils-2.3.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting eip712 (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eip712-0.1.6-py3-none-any.whl.metadata (4.5 kB)
+  Using cached eip712-0.1.5-py3-none-any.whl.metadata (4.1 kB)
+  Using cached eip712-0.1.4-py3-none-any.whl.metadata (4.1 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Using cached eip712-0.1.3-py3-none-any.whl.metadata (4.1 kB)
+  Using cached eip712-0.1.2-py3-none-any.whl.metadata (4.2 kB)
+  Using cached eip712-0.1.1-py3-none-any.whl.metadata (4.2 kB)
+  Using cached eip712-0.1.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting rlp>=1.0.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached rlp-4.0.0-py3-none-any.whl.metadata (4.4 kB)
+  Using cached rlp-3.0.0-py2.py3-none-any.whl.metadata (3.4 kB)
+Collecting eth-typing (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_typing-4.4.0-py3-none-any.whl.metadata (5.1 kB)
+  Using cached eth_typing-3.5.2-py3-none-any.whl.metadata (5.5 kB)
+Collecting rlp>=1.0.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached rlp-2.0.1-py2.py3-none-any.whl.metadata (3.1 kB)
+INFO: pip is looking at multiple versions of rlp to determine which version is compatible with other requirements. This could take a while.
+  Using cached rlp-2.0.0-py2.py3-none-any.whl.metadata (3.1 kB)
+  Using cached rlp-1.2.0-py2.py3-none-any.whl.metadata (3.2 kB)
+  Using cached rlp-1.1.0-py2.py3-none-any.whl.metadata (3.2 kB)
+  Using cached rlp-1.0.3-py2.py3-none-any.whl.metadata (3.2 kB)
+  Using cached rlp-1.0.2-py2.py3-none-any.whl.metadata (3.2 kB)
+  Using cached rlp-1.0.1-py2.py3-none-any.whl.metadata (3.1 kB)
+  Using cached rlp-1.0.0-py2.py3-none-any.whl.metadata (3.1 kB)
+INFO: pip is still looking at multiple versions of rlp to determine which version is compatible with other requirements. This could take a while.
+Collecting eth-rlp>=0.3.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_rlp-2.0.0-py3-none-any.whl.metadata (4.6 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Using cached eth_rlp-1.0.1-py3-none-any.whl.metadata (4.5 kB)
+INFO: pip is looking at multiple versions of eth-rlp to determine which version is compatible with other requirements. This could take a while.
+  Using cached eth_rlp-0.3.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting eth-keys>=0.4.0 (from eth-account->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached eth_keys-0.5.0-py3-none-any.whl.metadata (13 kB)
+  Using cached eth_keys-0.4.0-py3-none-any.whl.metadata (12 kB)
+INFO: pip is looking at multiple versions of eth-keys to determine which version is compatible with other requirements. This could take a while.
+Collecting web3 (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached web3-6.10.0-py3-none-any.whl.metadata (4.9 kB)
+INFO: pip is still looking at multiple versions of eth-rlp to determine which version is compatible with other requirements. This could take a while.
+  Using cached web3-6.9.0-py3-none-any.whl.metadata (4.9 kB)
+INFO: pip is still looking at multiple versions of eth-keys to determine which version is compatible with other requirements. This could take a while.
+  Using cached web3-6.8.0-py3-none-any.whl.metadata (5.0 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Using cached web3-6.7.0-py3-none-any.whl.metadata (5.0 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Using cached web3-6.6.1-py3-none-any.whl.metadata (5.0 kB)
+  Using cached web3-6.5.0-py3-none-any.whl.metadata (5.0 kB)
+  Using cached web3-6.4.0-py3-none-any.whl.metadata (5.1 kB)
+  Using cached web3-6.3.0-py3-none-any.whl.metadata (5.1 kB)
+  Using cached web3-6.2.0-py3-none-any.whl.metadata (5.1 kB)
+  Using cached web3-6.1.0-py3-none-any.whl.metadata (5.1 kB)
+  Using cached web3-6.0.0-py3-none-any.whl.metadata (6.0 kB)
+Collecting injective-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached injective_py-1.6.2-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.6.1-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.6.0-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.5.4-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.5.3-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.5.2-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.5.1-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.5.0-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.4.4-py3-none-any.whl.metadata (4.0 kB)
+Collecting protobuf (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached protobuf-4.25.4-cp37-abi3-manylinux2014_x86_64.whl.metadata (541 bytes)
+Collecting injective-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached injective_py-1.4.3-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.4.2-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.4.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting urllib3>=1.26.0 (from docker==4.4.2.dev287+ga365202->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 3))
+  Using cached urllib3-1.26.19-py2.py3-none-any.whl.metadata (49 kB)
+Collecting injective-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached injective_py-1.4.0-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.3.1-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.3.0-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-1.2.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting asyncio (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached asyncio-3.4.3-py3-none-any.whl.metadata (1.7 kB)
+Collecting injective-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached injective_py-1.1.1-py3-none-any.whl.metadata (4.1 kB)
+  Using cached injective_py-1.1.0-py3-none-any.whl.metadata (4.1 kB)
+  Using cached injective_py-1.0.1-py3-none-any.whl.metadata (4.1 kB)
+  Using cached injective_py-1.0-py3-none-any.whl.metadata (4.0 kB)
+  Using cached injective_py-0.9.12-py3-none-any.whl.metadata (10 kB)
+Collecting aiocron (from injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached aiocron-1.8-py3-none-any.whl.metadata (2.9 kB)
+Collecting croniter (from aiocron->injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached croniter-3.0.3-py2.py3-none-any.whl.metadata (28 kB)
+Collecting injective-py (from hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1))
+  Using cached injective_py-0.9.11-py3-none-any.whl.metadata (10 kB)
+  Using cached injective_py-0.9.10-py3-none-any.whl.metadata (10 kB)
+  Using cached injective_py-0.9.9-py3-none-any.whl.metadata (10 kB)
+  Using cached injective_py-0.9.8-py3-none-any.whl.metadata (10 kB)
+  Using cached injective_py-0.9.7-py3-none-any.whl.metadata (10 kB)
+  Using cached injective_py-0.9.6-py3-none-any.whl.metadata (10 kB)
+  Using cached injective_py-0.9.5-py3-none-any.whl.metadata (10.0 kB)
+  Using cached injective_py-0.9.4-py3-none-any.whl.metadata (9.8 kB)
+  Using cached injective_py-0.9.3-py3-none-any.whl.metadata (9.7 kB)
+  Using cached injective_py-0.9.2-py3-none-any.whl.metadata (9.6 kB)
+  Using cached injective_py-0.9.1-py3-none-any.whl.metadata (9.5 kB)
+  Using cached injective_py-0.9.0-py3-none-any.whl.metadata (9.3 kB)
+  Using cached injective_py-0.8.5-py3-none-any.whl.metadata (9.1 kB)
+  Using cached injective_py-0.8.4-py3-none-any.whl.metadata (9.0 kB)
+  Using cached injective_py-0.8.3-py3-none-any.whl.metadata (8.8 kB)
+  Using cached injective_py-0.8.1-py3-none-any.whl.metadata (8.7 kB)
+  Using cached injective_py-0.8-py3-none-any.whl.metadata (8.3 kB)
+  Using cached injective_py-0.7.2.1-py3-none-any.whl.metadata (7.3 kB)
+  Using cached injective_py-0.7.2-py3-none-any.whl.metadata (7.2 kB)
+  Using cached injective_py-0.7.1.2-py3-none-any.whl.metadata (7.0 kB)
+  Using cached injective_py-0.7.1.1-py3-none-any.whl.metadata (7.0 kB)
+  Using cached injective_py-0.7.1-py3-none-any.whl.metadata (6.9 kB)
+  Using cached injective_py-0.7.0.6-py3-none-any.whl.metadata (6.8 kB)
+  Using cached injective_py-0.7.0.5-py3-none-any.whl.metadata (6.8 kB)
+  Using cached injective_py-0.7.0.4-py3-none-any.whl.metadata (6.6 kB)
+  Using cached injective_py-0.7.0.3-py3-none-any.whl.metadata (6.5 kB)
+  Using cached injective_py-0.7.0.1-py3-none-any.whl.metadata (6.3 kB)
+  Using cached injective_py-0.7-py3-none-any.whl.metadata (6.3 kB)
+  Using cached injective_py-0.6.5-py3-none-any.whl.metadata (6.0 kB)
+Requirement already satisfied: setuptools in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from grpcio-tools->injective-py->hummingbot==20240703->-r /home/ubuntu/backend-api/condaenv.j67uss80.requirements.txt (line 1)) (72.2.0)
+Using cached numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+Using cached Cython-3.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+Using cached python_telegram_bot-12.8-py2.py3-none-any.whl (375 kB)
+Using cached python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+Using cached boto3-1.35.5-py3-none-any.whl (139 kB)
+Using cached PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+Using cached APScheduler-3.10.4-py3-none-any.whl (59 kB)
+Using cached commlib_py-0.10.6-py3-none-any.whl (49 kB)
+Using cached pydantic-1.10.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+Using cached ujson-5.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (52 kB)
+Using cached hiredis-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (83 kB)
+Using cached pika-1.3.1-py3-none-any.whl (155 kB)
+Using cached botocore-1.35.5-py3-none-any.whl (12.5 MB)
+Using cached jmespath-1.0.1-py3-none-any.whl (20 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached requests-2.32.3-py3-none-any.whl (64 kB)
+Using cached s3transfer-0.10.2-py3-none-any.whl (82 kB)
+Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Using cached tzlocal-5.2-py3-none-any.whl (17 kB)
+Using cached urllib3-2.2.2-py3-none-any.whl (121 kB)
+Using cached aioconsole-0.7.1-py3-none-any.whl (30 kB)
+Using cached aiohttp-3.10.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+Using cached async_timeout-4.0.3-py3-none-any.whl (5.7 kB)
+Using cached yarl-1.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (301 kB)
+Using cached aioprocessing-2.0.1-py3-none-any.whl (14 kB)
+Using cached appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Using cached appnope-0.1.4-py2.py3-none-any.whl (4.3 kB)
+Using cached asyncssh-2.16.0-py3-none-any.whl (362 kB)
+Using cached cryptography-43.0.0-cp39-abi3-manylinux_2_28_x86_64.whl (4.0 MB)
+Using cached base58-2.1.1-py3-none-any.whl (5.6 kB)
+Using cached bidict-0.23.1-py3-none-any.whl (32 kB)
+Using cached cachetools-5.5.0-py3-none-any.whl (9.5 kB)
+Using cached cytoolz-0.12.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+Using cached diff_cover-9.1.1-py3-none-any.whl (51 kB)
+Using cached eth_utils-5.0.0-py3-none-any.whl (100 kB)
+Using cached eth_typing-5.0.0-py3-none-any.whl (20 kB)
+Using cached hexbytes-1.2.1-py3-none-any.whl (5.2 kB)
+Using cached eth_abi-5.1.0-py3-none-any.whl (29 kB)
+Using cached eth_account-0.9.0-py3-none-any.whl (101 kB)
+Using cached eth_keyfile-0.8.1-py3-none-any.whl (7.5 kB)
+Using cached eth_bloom-3.0.1-py3-none-any.whl (5.7 kB)
+Using cached flake8-7.1.1-py2.py3-none-any.whl (57 kB)
+Using cached importlib_metadata-8.4.0-py3-none-any.whl (26 kB)
+Using cached web3-6.11.0-py3-none-any.whl (1.6 MB)
+Using cached parsimonious-0.10.0-py3-none-any.whl (48 kB)
+Using cached protobuf-5.27.3-cp38-abi3-manylinux2014_x86_64.whl (309 kB)
+Using cached websockets-13.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (157 kB)
+Using cached eth_keys-0.5.1-py3-none-any.whl (21 kB)
+Using cached eth_rlp-2.1.0-py3-none-any.whl (5.1 kB)
+Using cached rlp-4.0.1-py3-none-any.whl (20 kB)
+Using cached injective_py-0.6.5-py3-none-any.whl (662 kB)
+Using cached msgpack-1.0.8-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (385 kB)
+Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Using cached nose-1.3.7-py3-none-any.whl (154 kB)
+Using cached pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
+Using cached pytz-2024.1-py2.py3-none-any.whl (505 kB)
+Using cached pre_commit-3.8.0-py2.py3-none-any.whl (204 kB)
+Using cached prompt_toolkit-3.0.47-py3-none-any.whl (386 kB)
+Using cached psutil-6.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (290 kB)
+Using cached PyJWT-2.9.0-py3-none-any.whl (22 kB)
+Using cached pyOpenSSL-24.2.1-py3-none-any.whl (58 kB)
+Using cached rsa-4.9-py3-none-any.whl (34 kB)
+Using cached ruamel.yaml-0.18.6-py3-none-any.whl (117 kB)
+Using cached scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (41.2 MB)
+Using cached signalr_client_aio-0.0.1.6.2-py2.py3-none-any.whl (8.0 kB)
+Using cached simplejson-3.19.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (137 kB)
+Using cached SQLAlchemy-2.0.32-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+Using cached tabulate-0.9.0-py3-none-any.whl (35 kB)
+Using cached aiohappyeyeballs-2.4.0-py3-none-any.whl (12 kB)
+Using cached aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
+Using cached attrs-24.2.0-py3-none-any.whl (63 kB)
+Using cached bitarray-2.9.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
+Using cached cffi-1.17.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (445 kB)
+Using cached cfgv-3.4.0-py2.py3-none-any.whl (7.2 kB)
+Using cached chardet-5.2.0-py3-none-any.whl (199 kB)
+Using cached charset_normalizer-3.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (142 kB)
+Using cached decorator-5.1.1-py3-none-any.whl (9.1 kB)
+Using cached eth_hash-0.7.0-py3-none-any.whl (8.7 kB)
+Using cached frozenlist-1.4.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (239 kB)
+Using cached greenlet-3.0.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (616 kB)
+Using cached identify-2.6.0-py2.py3-none-any.whl (98 kB)
+Using cached jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Using cached lru_dict-1.3.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (30 kB)
+Using cached mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Using cached multidict-6.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (124 kB)
+Using cached nodeenv-1.9.1-py2.py3-none-any.whl (22 kB)
+Using cached pluggy-1.5.0-py3-none-any.whl (20 kB)
+Using cached pyasn1-0.6.0-py2.py3-none-any.whl (85 kB)
+Using cached pycodestyle-2.12.1-py2.py3-none-any.whl (31 kB)
+Using cached pycryptodome-3.20.0-cp35-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+Using cached pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+Using cached ruamel.yaml.clib-0.2.8-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (526 kB)
+Using cached toolz-0.12.1-py3-none-any.whl (56 kB)
+Using cached tornado-6.4.1-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (436 kB)
+Using cached tzdata-2024.1-py2.py3-none-any.whl (345 kB)
+Using cached virtualenv-20.26.3-py3-none-any.whl (5.7 MB)
+Using cached zipp-3.20.0-py3-none-any.whl (9.4 kB)
+Using cached aiocron-1.8-py3-none-any.whl (4.8 kB)
+Using cached asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)
+Using cached asyncio-3.4.3-py3-none-any.whl (101 kB)
+Using cached bech32-1.2.0-py3-none-any.whl (4.6 kB)
+Using cached bip32-3.4-py3-none-any.whl (10 kB)
+Using cached coincurve-18.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.4 MB)
+Using cached ecdsa-0.19.0-py2.py3-none-any.whl (149 kB)
+Using cached grpcio-1.66.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.7 MB)
+Using cached grpcio_tools-1.66.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.4 MB)
+Using cached hdwallets-0.1.2-py3-none-any.whl (8.6 kB)
+Using cached mnemonic-0.21-py3-none-any.whl (92 kB)
+Using cached wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Using cached distlib-0.3.8-py2.py3-none-any.whl (468 kB)
+Using cached filelock-3.15.4-py3-none-any.whl (16 kB)
+Using cached jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+Using cached platformdirs-4.2.2-py3-none-any.whl (18 kB)
+Using cached referencing-0.35.1-py3-none-any.whl (26 kB)
+Using cached regex-2024.7.24-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (776 kB)
+Using cached rpds_py-0.20.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (354 kB)
+Using cached croniter-3.0.3-py2.py3-none-any.whl (22 kB)
+Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+Building wheels for collected packages: hummingbot, docker, hbotrc
+  Building wheel for hummingbot (pyproject.toml): started
+  Building wheel for hummingbot (pyproject.toml): still running...
+  Building wheel for hummingbot (pyproject.toml): still running...
+  Building wheel for hummingbot (pyproject.toml): still running...
+  Building wheel for hummingbot (pyproject.toml): still running...
+  Building wheel for hummingbot (pyproject.toml): finished with status 'done'
+  Created wheel for hummingbot: filename=hummingbot-20240703-cp310-cp310-linux_x86_64.whl size=5157137 sha256=577ec01bf25542e952439dcad1b38bbf9d2f7ae8ccfc63adf4477e2df28052b0
+  Stored in directory: /tmp/pip-ephem-wheel-cache-c_xessuj/wheels/f4/06/8f/3d09a81206c6f8e3a3820e2a191b6d932e399de758578e6d75
+  Building wheel for docker (pyproject.toml): started
+  Building wheel for docker (pyproject.toml): finished with status 'done'
+  Created wheel for docker: filename=docker-4.4.2.dev287+ga365202-py3-none-any.whl size=147958 sha256=71e62e394e092fef5d0445097101fad308dcd35d1dd32f57628554edefa7e9c6
+  Stored in directory: /tmp/pip-ephem-wheel-cache-c_xessuj/wheels/75/34/f1/6bb4634a725e15bbaf928d15c99499420bd1bc7983b9682833
+  Building wheel for hbotrc (pyproject.toml): started
+  Building wheel for hbotrc (pyproject.toml): finished with status 'done'
+  Created wheel for hbotrc: filename=hbotrc-0.1.0-py3-none-any.whl size=11290 sha256=2f0b33c9852515d5b4abb307ea879c3f179b1545edf0a7fb42f7af7c5e42204b
+  Stored in directory: /tmp/pip-ephem-wheel-cache-c_xessuj/wheels/87/dd/3a/b224ff7216265f70f7ef27151ba4a91abd63f51649dff42027
+Successfully built hummingbot docker hbotrc
+Installing collected packages: wcwidth, pytz, pysha3, pyperclip, paho-mqtt, nose, distlib, bitarray, asyncio, asn1crypto, appdirs, zipp, websockets, urllib3, ujson, tzlocal, tzdata, tornado, toolz, tabulate, six, simplejson, ruamel.yaml.clib, rpds-py, regex, PyYAML, pyunormalize, python-dotenv, pyjwt, pyflakes, pydantic, pycryptodome, pycparser, pycodestyle, pyasn1, psutil, protobuf, prompt-toolkit, pluggy, platformdirs, pika, numpy, nose-exclude, nodeenv, mypy-extensions, multidict, msgpack, mnemonic, mccabe, lru-dict, jmespath, identify, hiredis, hexbytes, grpcio, greenlet, frozenlist, filelock, eth-typing, eth-hash, decorator, cython, charset-normalizer, chardet, cfgv, cachetools, bidict, bech32, base58, attrs, async-timeout, appnope, aioprocessing, aiohappyeyeballs, aioconsole, yarl, virtualenv, sqlalchemy, scipy, ruamel-yaml, rsa, requests, referencing, python-dateutil, parsimonious, importlib-metadata, grpcio-tools, flake8, ecdsa, diff-cover, cytoolz, commlib-py, cffi, apscheduler, aiosignal, signalr-client-aio, pre-commit, pandas, jsonschema-specifications, hdwallets, hbotrc, eth-utils, eth-bloom, docker, cryptography, croniter, coincurve, botocore, aiohttp, s3transfer, rlp, python-telegram-bot, pyOpenSSL, pandas-ta, jsonschema, eth-keys, eth-abi, eip712-structs, bip32, asyncssh, aiocron, injective-py, eth-rlp, eth-keyfile, boto3, eth-account, web3, hummingbot
+  Attempting uninstall: pydantic
+    Found existing installation: pydantic 2.8.2
+    Uninstalling pydantic-2.8.2:
+      Successfully uninstalled pydantic-2.8.2
+Successfully installed PyYAML-6.0.2 aioconsole-0.7.1 aiocron-1.8 aiohappyeyeballs-2.4.0 aiohttp-3.10.5 aioprocessing-2.0.1 aiosignal-1.3.1 appdirs-1.4.4 appnope-0.1.4 apscheduler-3.10.4 asn1crypto-1.5.1 async-timeout-4.0.3 asyncio-3.4.3 asyncssh-2.16.0 attrs-24.2.0 base58-2.1.1 bech32-1.2.0 bidict-0.23.1 bip32-3.4 bitarray-2.9.2 boto3-1.35.5 botocore-1.35.5 cachetools-5.5.0 cffi-1.17.0 cfgv-3.4.0 chardet-5.2.0 charset-normalizer-3.3.2 coincurve-18.0.0 commlib-py-0.10.6 croniter-3.0.3 cryptography-43.0.0 cython-3.0.0 cytoolz-0.12.3 decorator-5.1.1 diff-cover-9.1.1 distlib-0.3.8 docker-4.4.2.dev287+ga365202 ecdsa-0.19.0 eip712-structs-1.1.0 eth-abi-5.1.0 eth-account-0.9.0 eth-bloom-3.0.1 eth-hash-0.7.0 eth-keyfile-0.8.1 eth-keys-0.5.1 eth-rlp-2.1.0 eth-typing-5.0.0 eth-utils-5.0.0 filelock-3.15.4 flake8-7.1.1 frozenlist-1.4.1 greenlet-3.0.3 grpcio-1.66.0 grpcio-tools-1.66.0 hbotrc-0.1.0 hdwallets-0.1.2 hexbytes-1.2.1 hiredis-2.1.1 hummingbot-20240703 identify-2.6.0 importlib-metadata-8.4.0 injective-py-0.6.5 jmespath-1.0.1 jsonschema-4.23.0 jsonschema-specifications-2023.12.1 lru-dict-1.3.0 mccabe-0.7.0 mnemonic-0.21 msgpack-1.0.8 multidict-6.0.5 mypy-extensions-1.0.0 nodeenv-1.9.1 nose-1.3.7 nose-exclude-0.5.0 numpy-1.26.4 paho-mqtt-1.6.1 pandas-2.2.2 pandas-ta-0.3.14b0 parsimonious-0.10.0 pika-1.3.1 platformdirs-4.2.2 pluggy-1.5.0 pre-commit-3.8.0 prompt-toolkit-3.0.47 protobuf-5.27.3 psutil-6.0.0 pyOpenSSL-24.2.1 pyasn1-0.6.0 pycodestyle-2.12.1 pycparser-2.22 pycryptodome-3.20.0 pydantic-1.10.4 pyflakes-3.2.0 pyjwt-2.9.0 pyperclip-1.9.0 pysha3-1.0.2 python-dateutil-2.9.0.post0 python-dotenv-1.0.1 python-telegram-bot-12.8 pytz-2024.1 pyunormalize-15.1.0 referencing-0.35.1 regex-2024.7.24 requests-2.32.3 rlp-4.0.1 rpds-py-0.20.0 rsa-4.9 ruamel-yaml-0.18.6 ruamel.yaml.clib-0.2.8 s3transfer-0.10.2 scipy-1.14.1 signalr-client-aio-0.0.1.6.2 simplejson-3.19.3 six-1.16.0 sqlalchemy-2.0.32 tabulate-0.9.0 toolz-0.12.1 tornado-6.4.1 tzdata-2024.1 tzlocal-5.2 ujson-5.7.0 urllib3-2.2.2 virtualenv-20.26.3 wcwidth-0.2.13 web3-6.11.0 websockets-13.0 yarl-1.9.4 zipp-3.20.0
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate backend-api
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+conda env create -f environment.yml
+Channels:
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Installing pip dependencies: ...working... Ran pip subprocess with arguments:
+['/home/ubuntu/miniconda3/envs/backend-api/bin/python', '-m', 'pip', 'install', '-U', '-r', '/home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting git+https://github.com/hummingbot/hummingbot.git@staging (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Cloning https://github.com/hummingbot/hummingbot.git (to revision staging) to /tmp/pip-req-build-_4ezaf_8
+  Resolved https://github.com/hummingbot/hummingbot.git to commit cc70f1fb92b3acc6d9c55a4bd85c11b9f32d9b12
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting git+https://github.com/felixfontein/docker-py (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 3))
+  Cloning https://github.com/felixfontein/docker-py to /tmp/pip-req-build-8kw4cqpc
+  Resolved https://github.com/felixfontein/docker-py to commit a3652028b1ead708bd9191efb286f909ba6c2a49
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting git+https://github.com/hummingbot/hbot-remote-client-py.git (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 9))
+  Cloning https://github.com/hummingbot/hbot-remote-client-py.git to /tmp/pip-req-build-171cwv_m
+  Resolved https://github.com/hummingbot/hbot-remote-client-py.git to commit 5fa09e966f41593cdbc6c183a2d19f43ab4880c2
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting numpy==1.26.4 (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 2))
+  Using cached numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting python-dotenv (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 4))
+  Using cached python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+Collecting boto3 (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 5))
+  Downloading boto3-1.35.6-py3-none-any.whl.metadata (6.6 kB)
+Requirement already satisfied: python-multipart in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 6)) (0.0.9)
+Collecting PyYAML (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 7))
+  Using cached PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting apscheduler (from -r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 8))
+  Using cached APScheduler-3.10.4-py3-none-any.whl.metadata (5.7 kB)
+Collecting bidict (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached bidict-0.23.1-py3-none-any.whl.metadata (8.7 kB)
+Collecting aioconsole (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached aioconsole-0.7.1-py3-none-any.whl.metadata (5.4 kB)
+Collecting aiohttp (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached aiohttp-3.10.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.5 kB)
+Collecting aioprocessing (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached aioprocessing-2.0.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting asyncssh (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached asyncssh-2.16.0-py3-none-any.whl.metadata (9.9 kB)
+Collecting appdirs (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting appnope (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached appnope-0.1.4-py2.py3-none-any.whl.metadata (908 bytes)
+Collecting async-timeout (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached async_timeout-4.0.3-py3-none-any.whl.metadata (4.2 kB)
+Collecting base58 (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached base58-2.1.1-py3-none-any.whl.metadata (3.1 kB)
+Collecting cachetools (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached cachetools-5.5.0-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: certifi in /home/ubuntu/miniconda3/envs/backend-api/lib/python3.10/site-packages (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1)) (2024.7.4)
+Collecting coincurve (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached coincurve-20.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting cryptography (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached cryptography-43.0.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.4 kB)
+Collecting cython==3.0.0 (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached Cython-3.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.1 kB)
+Collecting cytoolz (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached cytoolz-0.12.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.6 kB)
+Collecting commlib-py (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached commlib_py-0.11.4-py3-none-any.whl.metadata (24 kB)
+Collecting diff-cover (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached diff_cover-9.1.1-py3-none-any.whl.metadata (17 kB)
+Collecting ecdsa (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached ecdsa-0.19.0-py2.py3-none-any.whl.metadata (29 kB)
+Collecting eip712-structs (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached eip712_structs-1.1.0-py3-none-any.whl
+Collecting eth-abi (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached eth_abi-5.1.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting eth-account (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached eth_account-0.13.2-py3-none-any.whl.metadata (5.3 kB)
+Collecting eth-bloom (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached eth_bloom-3.0.1-py3-none-any.whl.metadata (8.3 kB)
+Collecting eth-keyfile (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached eth_keyfile-0.8.1-py3-none-any.whl.metadata (8.5 kB)
+Collecting eth-typing (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached eth_typing-5.0.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting eth-utils (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached eth_utils-5.0.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting flake8 (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached flake8-7.1.1-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting grpc (from hummingbot==20240828->-r /home/ubuntu/backend-api/condaenv.mv6rw_sf.requirements.txt (line 1))
+  Using cached grpc-1.0.0.tar.gz (5.2 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'error'
+Pip subprocess error:
+  Running command git clone --filter=blob:none --quiet https://github.com/hummingbot/hummingbot.git /tmp/pip-req-build-_4ezaf_8
+  Running command git checkout -b staging --track origin/staging
+  Switched to a new branch 'staging'
+  branch 'staging' set up to track 'origin/staging'.
+  Running command git clone --filter=blob:none --quiet https://github.com/felixfontein/docker-py /tmp/pip-req-build-8kw4cqpc
+  Running command git clone --filter=blob:none --quiet https://github.com/hummingbot/hbot-remote-client-py.git /tmp/pip-req-build-171cwv_m
+  error: subprocess-exited-with-error
+  
+  × python setup.py egg_info did not run successfully.
+  │ exit code: 1
+  ╰─> [6 lines of output]
+      Traceback (most recent call last):
+        File "<string>", line 2, in <module>
+        File "<pip-setuptools-caller>", line 34, in <module>
+        File "/tmp/pip-install-kpptd8y0/grpc_eac7973b368947ac882d9cdfa588d443/setup.py", line 33, in <module>
+          raise RuntimeError(HINT)
+      RuntimeError: Please install the official package with: pip install grpcio
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+
+
+failed
+
+CondaEnvException: Pip failed
+
+make: *** [Makefile:13: install] Error 1
