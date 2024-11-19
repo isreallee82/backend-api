@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 CONTROLLERS_PATH = "bots/conf/controllers"
+STRATEGIES_PATH = "bots/conf/strategies"
 CONTROLLERS_MODULE = "bots.controllers"
 CONFIG_PASSWORD = os.getenv("CONFIG_PASSWORD", "a")
 BROKER_HOST = os.getenv("BROKER_HOST", "localhost")

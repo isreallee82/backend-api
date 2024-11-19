@@ -16,7 +16,8 @@ class HummingbotDatabase:
         self.db_name = os.path.basename(db_path)
         self.db_path = db_path
         self.db_path = f'sqlite:///{os.path.join(db_path)}'
-        self.engine = create_engine(self.db_path, connect_args={'check_same_thread': False})
+        self.engine = create_engine(self.db_path, connect_args={
+                                    'check_same_thread': False})
         self.session_maker = sessionmaker(bind=self.engine)
 
     @staticmethod
@@ -64,8 +65,10 @@ class HummingbotDatabase:
             query = "SELECT * FROM TradeFill"
             trade_fills = pd.read_sql_query(text(query), session.connection())
             trade_fills[float_cols] = trade_fills[float_cols] / 1e6
-            trade_fills["cum_fees_in_quote"] = trade_fills.groupby(groupers)["trade_fee_in_quote"].cumsum()
-            trade_fills["trade_fee"] = trade_fills.groupby(groupers)["cum_fees_in_quote"].diff()
+            trade_fills["cum_fees_in_quote"] = trade_fills.groupby(
+                groupers)["trade_fee_in_quote"].cumsum()
+            trade_fills["trade_fee"] = trade_fills.groupby(
+                groupers)["cum_fees_in_quote"].diff()
             # trade_fills["timestamp"] = pd.to_datetime(trade_fills["timestamp"], unit="ms")
         return trade_fills
 
@@ -87,12 +90,19 @@ class HummingbotDatabase:
             controllers = pd.read_sql_query(text(query), session.connection())
         return controllers
 
+    def get_strategies_data(self) -> pd.DataFrame:
+        with self.session_maker() as session:
+            query = "SELECT * FROM Strategies"
+            strategies = pd.read_sql_query(text(query), session.connection())
+        return strategies
+
 
 class ETLPerformance:
     def __init__(self,
                  db_path: str):
         self.db_path = f'sqlite:///{os.path.join(db_path)}'
-        self.engine = create_engine(self.db_path, connect_args={'check_same_thread': False})
+        self.engine = create_engine(self.db_path, connect_args={
+                                    'check_same_thread': False})
         self.session_maker = sessionmaker(bind=self.engine)
         self.metadata = MetaData()
 
@@ -173,8 +183,18 @@ class ETLPerformance:
         )
 
     @property
+    def controllers_table(self):
+        return Table(
+            'strategies', MetaData(),
+            Column('id', VARCHAR(255)),
+            Column('timestamp', FLOAT),
+            Column('type', VARCHAR(255)),
+            Column('config', String),
+        )
+
+    @ property
     def tables(self):
-        return [self.executors_table, self.trade_fill_table, self.orders_table, self.controllers_table]
+        return [self.executors_table, self.trade_fill_table, self.orders_table, self.controllers_table, self.strategies_table]
 
     def create_tables(self):
         with self.engine.connect():
@@ -190,6 +210,8 @@ class ETLPerformance:
             self.insert_orders(data["orders"])
         if "controllers" in data:
             self.insert_controllers(data["controllers"])
+        if "strategies" in data:
+            self.insert_strategies(data["strategies"])
 
     def insert_executors(self, executors):
         with self.engine.connect() as conn:
@@ -275,6 +297,18 @@ class ETLPerformance:
                 conn.execute(ins)
                 conn.commit()
 
+    def insert_strategies(self, strategies):
+        with self.engine.connect() as conn:
+            for _, row in strategies.iterrows():
+                ins = insert(self.strategies_table).values(
+                    id=row["id"],
+                    timestamp=row["timestamp"],
+                    type=row["type"],
+                    config=row["config"],
+                )
+                conn.execute(ins)
+                conn.commit()
+
     def load_executors(self):
         with self.session_maker() as session:
             query = "SELECT * FROM executors"
@@ -299,32 +333,49 @@ class ETLPerformance:
             controllers = pd.read_sql_query(text(query), session.connection())
             return controllers
 
+    def load_strategies(self):
+        with self.session_maker() as session:
+            query = "SELECT * FROM strategies"
+            strategies = pd.read_sql_query(text(query), session.connection())
+            return strategies
+
 
 class PerformanceDataSource:
     def __init__(self, executors_dict: Dict[str, Any]):
         self.executors_dict = executors_dict
 
-    @property
+    @ property
     def executors_df(self):
         executors = pd.DataFrame(self.executors_dict)
         executors["custom_info"] = executors["custom_info"].apply(
             lambda x: json.loads(x) if isinstance(x, str) else x)
-        executors["config"] = executors["config"].apply(lambda x: json.loads(x) if isinstance(x, str) else x)
-        executors["timestamp"] = executors["timestamp"].apply(lambda x: self.ensure_timestamp_in_seconds(x))
+        executors["config"] = executors["config"].apply(
+            lambda x: json.loads(x) if isinstance(x, str) else x)
+        executors["timestamp"] = executors["timestamp"].apply(
+            lambda x: self.ensure_timestamp_in_seconds(x))
         executors["close_timestamp"] = executors["close_timestamp"].apply(
             lambda x: self.ensure_timestamp_in_seconds(x))
-        executors["trading_pair"] = executors["config"].apply(lambda x: x["trading_pair"])
-        executors["exchange"] = executors["config"].apply(lambda x: x["connector_name"])
-        executors["level_id"] = executors["config"].apply(lambda x: x.get("level_id"))
-        executors["bep"] = executors["custom_info"].apply(lambda x: x["current_position_average_price"])
-        executors["order_ids"] = executors["custom_info"].apply(lambda x: x.get("order_ids"))
-        executors["close_price"] = executors["custom_info"].apply(lambda x: x.get("close_price", x["current_position_average_price"]))
-        executors["sl"] = executors["config"].apply(lambda x: x.get("stop_loss")).fillna(0)
-        executors["tp"] = executors["config"].apply(lambda x: x.get("take_profit")).fillna(0)
-        executors["tl"] = executors["config"].apply(lambda x: x.get("time_limit")).fillna(0)
+        executors["trading_pair"] = executors["config"].apply(
+            lambda x: x["trading_pair"])
+        executors["exchange"] = executors["config"].apply(
+            lambda x: x["connector_name"])
+        executors["level_id"] = executors["config"].apply(
+            lambda x: x.get("level_id"))
+        executors["bep"] = executors["custom_info"].apply(
+            lambda x: x["current_position_average_price"])
+        executors["order_ids"] = executors["custom_info"].apply(
+            lambda x: x.get("order_ids"))
+        executors["close_price"] = executors["custom_info"].apply(
+            lambda x: x.get("close_price", x["current_position_average_price"]))
+        executors["sl"] = executors["config"].apply(
+            lambda x: x.get("stop_loss")).fillna(0)
+        executors["tp"] = executors["config"].apply(
+            lambda x: x.get("take_profit")).fillna(0)
+        executors["tl"] = executors["config"].apply(
+            lambda x: x.get("time_limit")).fillna(0)
         return executors
 
-    @property
+    @ property
     def executor_info_list(self) -> List[ExecutorInfo]:
         executors = self.apply_special_data_types(self.executors_df)
         executor_values = []
@@ -351,22 +402,27 @@ class PerformanceDataSource:
         return executor_values
 
     def apply_special_data_types(self, executors):
-        executors["status"] = executors["status"].apply(lambda x: self.get_enum_by_value(RunnableStatus, int(x)))
-        executors["side"] = executors["config"].apply(lambda x: self.get_enum_by_value(TradeType, int(x["side"])))
-        executors["close_type"] = executors["close_type"].apply(lambda x: self.get_enum_by_value(CloseType, int(x)))
-        executors["close_type_name"] = executors["close_type"].apply(lambda x: x.name)
+        executors["status"] = executors["status"].apply(
+            lambda x: self.get_enum_by_value(RunnableStatus, int(x)))
+        executors["side"] = executors["config"].apply(
+            lambda x: self.get_enum_by_value(TradeType, int(x["side"])))
+        executors["close_type"] = executors["close_type"].apply(
+            lambda x: self.get_enum_by_value(CloseType, int(x)))
+        executors["close_type_name"] = executors["close_type"].apply(
+            lambda x: x.name)
         executors["datetime"] = pd.to_datetime(executors.timestamp, unit="s")
-        executors["close_datetime"] = pd.to_datetime(executors["close_timestamp"], unit="s")
+        executors["close_datetime"] = pd.to_datetime(
+            executors["close_timestamp"], unit="s")
         return executors
 
-    @staticmethod
+    @ staticmethod
     def get_enum_by_value(enum_class, value):
         for member in enum_class:
             if member.value == value:
                 return member
         raise ValueError(f"No enum member with value {value}")
 
-    @staticmethod
+    @ staticmethod
     def ensure_timestamp_in_seconds(timestamp: float) -> float:
         """
         Ensure the given timestamp is in seconds.

@@ -99,9 +99,11 @@ class DockerManager:
         source_credentials_dir = os.path.join("bots", 'credentials', config.credentials_profile)
         script_config_dir = os.path.join("bots", 'conf', 'scripts')
         controllers_config_dir = os.path.join("bots", 'conf', 'controllers')
+        strategies_config_dir = os.path.join("bots", 'conf', 'strategies')
         destination_credentials_dir = os.path.join(instance_dir, 'conf')
         destination_scripts_config_dir = os.path.join(instance_dir, 'conf', 'scripts')
         destination_controllers_config_dir = os.path.join(instance_dir, 'conf', 'controllers')
+        destination_strategies_config_dir = os.path.join(instance_dir, 'conf', 'strategies')
 
         # Remove the destination directory if it already exists
         if os.path.exists(destination_credentials_dir):
@@ -110,6 +112,7 @@ class DockerManager:
         # Copy the entire contents of source_credentials_dir to destination_credentials_dir     
         shutil.copytree(source_credentials_dir, destination_credentials_dir)
         shutil.copytree(script_config_dir, destination_scripts_config_dir)
+        shutil.copytree(strategies_config_dir, destination_strategies_config_dir)
         shutil.copytree(controllers_config_dir, destination_controllers_config_dir)
         conf_file_path = f"{instance_dir}/conf/conf_client.yml"
         client_config = FileSystemUtil.read_yaml_file(conf_file_path)
@@ -122,9 +125,11 @@ class DockerManager:
             os.path.abspath(os.path.join(bots_path, instance_dir, 'conf', 'connectors')): {'bind': '/home/hummingbot/conf/connectors', 'mode': 'rw'},
             os.path.abspath(os.path.join(bots_path, instance_dir, 'conf', 'scripts')): {'bind': '/home/hummingbot/conf/scripts', 'mode': 'rw'},
             os.path.abspath(os.path.join(bots_path, instance_dir, 'conf', 'controllers')): {'bind': '/home/hummingbot/conf/controllers', 'mode': 'rw'},
+            os.path.abspath(os.path.join(bots_path, instance_dir, 'conf', 'strategies')): {'bind': '/home/hummingbot/conf/strategies', 'mode': 'rw'},
             os.path.abspath(os.path.join(bots_path, instance_dir, 'data')): {'bind': '/home/hummingbot/data', 'mode': 'rw'},
             os.path.abspath(os.path.join(bots_path, instance_dir, 'logs')): {'bind': '/home/hummingbot/logs', 'mode': 'rw'},
             os.path.abspath(os.path.join(bots_path, "bots", 'scripts')): {'bind': '/home/hummingbot/scripts', 'mode': 'rw'},
+            os.path.abspath(os.path.join(bots_path, "bots", 'strategies')): {'bind': '/home/hummingbot/strategies', 'mode': 'rw'},
             os.path.abspath(os.path.join(bots_path, "bots", 'controllers')): {'bind': '/home/hummingbot/controllers', 'mode': 'rw'},
         }
 

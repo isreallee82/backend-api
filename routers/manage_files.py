@@ -52,12 +52,19 @@ async def list_controllers():
 async def list_controllers_configs():
     return file_system.list_files('conf/controllers')
 
+@router.get("/list-strategies-configs", response_model=List[str])
+async def list_strategies_configs():
+    return file_system.list_files('conf/strategies')
 
 @router.get("/controller-config/{controller_name}", response_model=dict)
 async def get_controller_config(controller_name: str):
     config = file_system.read_yaml_file(f"bots/conf/controllers/{controller_name}.yml")
     return config
 
+@router.get("/strategies-config/{strategies_name}", response_model=dict)
+async def get_strategies_config(strategies_name: str):
+    config = file_system.read_yaml_file(f"bots/conf/strategies/{strategies_name}.yml")
+    return config
 
 @router.get("/all-controller-configs", response_model=List[dict])
 async def get_all_controller_configs():
@@ -67,6 +74,13 @@ async def get_all_controller_configs():
         configs.append(config)
     return configs
 
+@router.get("/all-strategy-configs", response_model=List[dict])
+async def get_all_strategy_configs():
+    configs = []
+    for strategy in file_system.list_files('conf/strategies'):
+        config = file_system.read_yaml_file(f"bots/conf/strategies/{strategy}")
+        configs.append(config)
+    return configs
 
 @router.get("/all-controller-configs/bot/{bot_name}", response_model=List[dict])
 async def get_all_controller_configs_for_bot(bot_name: str):
@@ -79,6 +93,16 @@ async def get_all_controller_configs_for_bot(bot_name: str):
         configs.append(config)
     return configs
 
+@router.get("/all-strategy-configs/bot/{bot_name}", response_model=List[dict])
+async def get_all_strategy_configs_for_bot(bot_name: str):
+    configs = []
+    bots_config_path = f"instances/{bot_name}/conf/strategies"
+    if not file_system.path_exists(bots_config_path):
+        raise HTTPException(status_code=400, detail="Bot not found.")
+    for strategy in file_system.list_files(bots_config_path):
+        config = file_system.read_yaml_file(f"bots/{bots_config_path}/{strategy}")
+        configs.append(config)
+    return configs
 
 @router.post("/update-controller-config/bot/{bot_name}/{controller_id}")
 async def update_controller_config(bot_name: str, controller_id: str, config: Dict):
@@ -90,6 +114,15 @@ async def update_controller_config(bot_name: str, controller_id: str, config: Di
     file_system.dump_dict_to_yaml(f"bots/{bots_config_path}/{controller_id}.yml", current_config)
     return {"message": "Controller configuration updated successfully."}
 
+@router.post("/update-strategy-config/bot/{bot_name}/{strategy_id}")
+async def update_strategy_config(bot_name: str, strategy_id: str, config: Dict):
+    bots_config_path = f"instances/{bot_name}/conf/strategys"
+    if not file_system.path_exists(bots_config_path):
+        raise HTTPException(status_code=400, detail="Bot not found.")
+    current_config = file_system.read_yaml_file(f"bots/{bots_config_path}/{strategy_id}.yml")
+    current_config.update(config)
+    file_system.dump_dict_to_yaml(f"bots/{bots_config_path}/{strategy_id}.yml", current_config)
+    return {"message": "strategy configuration updated successfully."}
 
 @router.post("/add-script", status_code=status.HTTP_201_CREATED)
 async def add_script(script: Script, override: bool = False):
@@ -141,6 +174,16 @@ async def add_controller_config(config: ScriptConfig):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
+@router.post("/add-strategy-config", status_code=status.HTTP_201_CREATED)
+async def add_strategy_config(config: ScriptConfig):
+    try:
+        yaml_content = yaml.dump(config.content)
+
+        file_system.add_file('conf/strategies', config.name + '.yml', yaml_content, override=True)
+        return {"message": "strategy configuration uploaded successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
 
 @router.post("/upload-controller-config")
 async def upload_controller_config(config_file: UploadFile = File(...), override: bool = False):
@@ -151,7 +194,15 @@ async def upload_controller_config(config_file: UploadFile = File(...), override
     except FileExistsError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-
+@router.post("/upload-strategy-config")
+async def upload_strategy_config(config_file: UploadFile = File(...), override: bool = False):
+    try:
+        contents = await config_file.read()
+        file_system.add_file('conf/strategies', config_file.filename, contents.decode(), override)
+        return {"message": "strategy configuration uploaded successfully."}
+    except FileExistsError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
 @router.post("/delete-controller-config", status_code=status.HTTP_200_OK)
 async def delete_controller_config(config_name: str):
     try:
@@ -159,7 +210,14 @@ async def delete_controller_config(config_name: str):
         return {"message": f"Controller configuration {config_name} deleted successfully."}
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
-
+    
+@router.post("/delete-controller-config", status_code=status.HTTP_200_OK)
+async def delete_strategy_config(config_name: str):
+    try:
+        file_system.delete_file('conf/strategies', config_name)
+        return {"message": f"strategy configuration {config_name} deleted successfully."}
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 @router.post("/delete-script-config", status_code=status.HTTP_200_OK)
 async def delete_script_config(config_name: str):
