@@ -175,7 +175,7 @@ async def add_controller_config(config: ScriptConfig):
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.post("/add-strategy-config", status_code=status.HTTP_201_CREATED)
-async def add_strategy_config(config: ScriptConfig):
+async def add_srategy_config(config: ScriptConfig):
     try:
         yaml_content = yaml.dump(config.content)
 
