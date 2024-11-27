@@ -27,9 +27,26 @@ def get_active_bots_status():
     return {"status": "success", "data": bots_manager.get_all_bots_status()}
 
 
+@router.get("/get-active-bots-statuses")
+def get_active_bots_statuses():
+    """Returns the cached status of all active bots."""
+    return {"status": "success", "data": bots_manager.get_all_bots_statuses()}
+
+
 @router.get("/get-bot-status/{bot_name}")
 def get_bot_status(bot_name: str):
     response = bots_manager.get_bot_status(bot_name)
+    if not response:
+        raise HTTPException(status_code=404, detail="Bot not found")
+    return {
+        "status": "success",
+        "data": response
+    }
+
+
+@router.get("/get-bot-statuses/{bot_name}")
+def get_bot_statuses(bot_name: str):
+    response = bots_manager._get_bot_statuses(bot_name)
     if not response:
         raise HTTPException(status_code=404, detail="Bot not found")
     return {
@@ -60,5 +77,6 @@ def stop_bot(action: StopBotAction):
 
 @router.post("/import-strategy")
 def import_strategy(action: ImportStrategyAction):
-    response = bots_manager.import_strategy_for_bot(action.bot_name, action.strategy)
+    response = bots_manager.import_strategy_for_bot(
+        action.bot_name, action.strategy)
     return {"status": "success", "response": response}

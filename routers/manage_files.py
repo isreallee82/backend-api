@@ -116,7 +116,7 @@ async def update_controller_config(bot_name: str, controller_id: str, config: Di
 
 @router.post("/update-strategy-config/bot/{bot_name}/{strategy_id}")
 async def update_strategy_config(bot_name: str, strategy_id: str, config: Dict):
-    bots_config_path = f"instances/{bot_name}/conf/strategys"
+    bots_config_path = f"instances/{bot_name}/conf/strategies"
     if not file_system.path_exists(bots_config_path):
         raise HTTPException(status_code=400, detail="Bot not found.")
     current_config = file_system.read_yaml_file(f"bots/{bots_config_path}/{strategy_id}.yml")
@@ -211,7 +211,7 @@ async def delete_controller_config(config_name: str):
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
     
-@router.post("/delete-controller-config", status_code=status.HTTP_200_OK)
+@router.post("/delete-strategy-config", status_code=status.HTTP_200_OK)
 async def delete_strategy_config(config_name: str):
     try:
         file_system.delete_file('conf/strategies', config_name)

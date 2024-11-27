@@ -17,12 +17,17 @@ class HummingbotPerformanceListener(BotListener):
         )
         self._performance_topic = f'{topic_prefix}/performance'
         self._bot_performance = {}
+        self._bot_performances = {}
         self._bot_error_logs = deque(maxlen=100)
         self._bot_general_logs = deque(maxlen=100)
         self.performance_report_sub = None
+        self.performances_report_sub = None
 
     def get_bot_performance(self):
         return self._bot_performance
+
+    def _get_bot_performance(self):
+        return self._bot_performances
 
     def get_bot_error_logs(self):
         return list(self._bot_error_logs)
@@ -34,10 +39,16 @@ class HummingbotPerformanceListener(BotListener):
         super()._init_endpoints()
         self.performance_report_sub = self.create_subscriber(topic=self._performance_topic,
                                                              on_message=self._update_bot_performance)
+        self.performances_report_sub = self.create_subscriber(topic=self._performance_topic,
+                                                             on_message=self._update_bot_performances)
 
     def _update_bot_performance(self, msg):
         for controller_id, performance_report in msg.items():
             self._bot_performance[controller_id] = performance_report
+
+    def _update_bot_performances(self, msg):
+        for strategy_id, performance_report in msg.items():
+            self._bot_performance[strategy_id] = performance_report
 
     def _on_log(self, log):
         if log.level_name == "ERROR":
@@ -48,6 +59,10 @@ class HummingbotPerformanceListener(BotListener):
     def stop(self):
         super().stop()
         self._bot_performance = {}
+
+    def _stop(self):
+        super().stop()
+        self._bot_performances = {}
 
 
 class BotsManager:
@@ -133,7 +148,8 @@ class BotsManager:
         for controller, performance in controllers_performance.items():
             try:
                 # Check if all the metrics are numeric
-                _ = sum(metric for key, metric in performance.items() if key != "close_type_counts")
+                _ = sum(metric for key, metric in performance.items()
+                        if key != "close_type_counts")
                 cleaned_performance[controller] = {
                     "status": "running",
                     "performance": performance
@@ -144,6 +160,31 @@ class BotsManager:
                     "error": f"Some metrics are not numeric, check logs and restart controller: {e}",
                 }
         return cleaned_performance
+
+    @staticmethod
+    def determine_strategy_performance(strategies_performance):
+        cleaned_performance = {}
+        for strategy, performance in strategies_performance.items():
+            try:
+                # Check if all the metrics are numeric
+                _ = sum(metric for key, metric in performance.items()
+                        if key != "close_type_counts")
+                cleaned_performance[strategy] = {
+                    "status": "running",
+                    "performance": performance
+                }
+            except Exception as e:
+                cleaned_performance[strategy] = {
+                    "status": "error",
+                    "error": f"Some metrics are not numeric, check logs and restart strategy: {e}",
+                }
+        return cleaned_performance
+
+    def get_all_bots_statuses(self):
+        all_bots_status = {}
+        for bot in self.active_bots:
+            all_bots_status[bot] = self._get_bot_statuses(bot)
+        return all_bots_status
 
     def get_all_bots_status(self):
         all_bots_status = {}
@@ -156,10 +197,34 @@ class BotsManager:
             try:
                 broker_listener = self.active_bots[bot_name]["broker_listener"]
                 controllers_performance = broker_listener.get_bot_performance()
-                performance = self.determine_controller_performance(controllers_performance)
+                performance = self.determine_controller_performance(
+                    controllers_performance)
                 error_logs = broker_listener.get_bot_error_logs()
                 general_logs = broker_listener.get_bot_general_logs()
                 status = "running" if len(performance) > 0 else "stopped"
+                return {
+                    "status": status,
+                    "performance": performance,
+                    "error_logs": error_logs,
+                    "general_logs": general_logs
+                }
+            except Exception as e:
+                return {
+                    "status": "error",
+                    "error": str(e)
+                }
+
+    def _get_bot_statuses(self, bot_name):
+        if bot_name in self.active_bots:
+            # self.import_strategy_for_bot(bot_name)
+            try:
+                broker_listener = self.active_bots[bot_name]["broker_listener"]
+                strategies_performance = broker_listener._get_bot_performance()
+                performance = self.determine_strategy_performance(
+                    strategies_performance)
+                error_logs = broker_listener.get_bot_error_logs()
+                general_logs = broker_listener.get_bot_general_logs()
+                status = "running"
                 return {
                     "status": status,
                     "performance": performance,

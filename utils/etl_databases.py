@@ -35,8 +35,9 @@ class HummingbotDatabase:
         order_status_status = self._get_table_status(self.get_order_status)
         executors_status = self._get_table_status(self.get_executors_data)
         controller_status = self._get_table_status(self.get_controllers_data)
+        strategy_status = self._get_table_status(self.get_strategies_data)
         general_status = all(status == "Correct" for status in
-                             [trade_fill_status, orders_status, order_status_status, executors_status, controller_status])
+                             [trade_fill_status, orders_status, order_status_status, executors_status, controller_status, strategy_status])
         status = {"db_name": self.db_name,
                   "db_path": self.db_path,
                   "trade_fill": trade_fill_status,
@@ -183,16 +184,17 @@ class ETLPerformance:
         )
 
     @property
-    def controllers_table(self):
+    def strategies_table(self):
         return Table(
             'strategies', MetaData(),
             Column('id', VARCHAR(255)),
+            Column('strategy_id', INT),
             Column('timestamp', FLOAT),
             Column('type', VARCHAR(255)),
             Column('config', String),
         )
 
-    @ property
+    @property
     def tables(self):
         return [self.executors_table, self.trade_fill_table, self.orders_table, self.controllers_table, self.strategies_table]
 
@@ -302,6 +304,7 @@ class ETLPerformance:
             for _, row in strategies.iterrows():
                 ins = insert(self.strategies_table).values(
                     id=row["id"],
+                    strategy_id=row["strategy_id"],
                     timestamp=row["timestamp"],
                     type=row["type"],
                     config=row["config"],
@@ -344,7 +347,7 @@ class PerformanceDataSource:
     def __init__(self, executors_dict: Dict[str, Any]):
         self.executors_dict = executors_dict
 
-    @ property
+    @property
     def executors_df(self):
         executors = pd.DataFrame(self.executors_dict)
         executors["custom_info"] = executors["custom_info"].apply(
@@ -375,7 +378,7 @@ class PerformanceDataSource:
             lambda x: x.get("time_limit")).fillna(0)
         return executors
 
-    @ property
+    @property
     def executor_info_list(self) -> List[ExecutorInfo]:
         executors = self.apply_special_data_types(self.executors_df)
         executor_values = []
@@ -415,14 +418,14 @@ class PerformanceDataSource:
             executors["close_timestamp"], unit="s")
         return executors
 
-    @ staticmethod
+    @staticmethod
     def get_enum_by_value(enum_class, value):
         for member in enum_class:
             if member.value == value:
                 return member
         raise ValueError(f"No enum member with value {value}")
 
-    @ staticmethod
+    @staticmethod
     def ensure_timestamp_in_seconds(timestamp: float) -> float:
         """
         Ensure the given timestamp is in seconds.
